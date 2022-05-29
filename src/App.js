@@ -8,7 +8,7 @@ import Navbar from './components/Shared/Navbar/Navbar';
 function App() {
   return (
     
-    <div>
+    <div className='lg:max-w-7xl mx-auto'>
       <Navbar/>
       <Routes>
       <Route path="/" element={<Home/>}></Route>

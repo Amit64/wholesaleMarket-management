@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { Link, useNavigate } from 'react-router-dom';
+import SocialLogin from './SocialLogin';
 
 const SignUp = () => {
     const { register,  handleSubmit, formState: { errors } } = useForm();
@@ -25,13 +26,16 @@ const SignUp = () => {
     if(error || error1 || updateError){
         loginError= <p className='text-red-500'><small>{error?.message || error1?.message || updateError?.message }</small></p>
     }
+    const socialLogin =()=>{
+        signInWithGoogle()
+     }
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         navigate("/");
     }
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div className='flex flex-col h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
@@ -110,13 +114,14 @@ const SignUp = () => {
                         <input className='btn btn-accent w-full max-w-xs text-white' type="submit" value="Register" />
                     </form>
                     <p><small>Already Have An Account ? <Link className='text-primary' to="/login">Please Login...</Link></small></p>
-                    <div className="divider">OR</div>
-                    <button
-                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline text-xl"
-                    > <span className='text-3xl'><FcGoogle/></span>oole Login</button>
                 </div>
             </div>
+            <div className="divider w-96 mx-auto">OR</div>
+      <div className="card w-96 bg-base-100 shadow-xl rounded-box place-items-center">
+          <div className="card-body w-full">
+      <SocialLogin socialLogin={socialLogin} />
+          </div>
+      </div>
         </div >
     );
 };
