@@ -1,12 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Login = () => {
-    const { register,  handleSubmit } = useForm();
+    const { register,  handleSubmit, formState: { errors } } = useForm();
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    let loginError;
+
+    if (loading || loading1) {
+        return <Loading></Loading> ;
+    }
+    if(error || error1){
+        loginError= <p className='text-red-500'><small>{error?.message || error1?.message }</small></p>
+    }
     const onSubmit = data => {
-        
+        signInWithEmailAndPassword(data.email,data.password);
+        navigate(from, { replace: true });
     }
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -34,7 +57,10 @@ const Login = () => {
                                     }
                                 })}
                             />
-                        
+                        <label className="label">
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                            </label>
 
                         </div>
                         <div className="form-control w-full max-w-xs">
@@ -56,17 +82,20 @@ const Login = () => {
                                     }
                                 })}
                             />
-                      
+                         <label className="label">
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                            </label>
 
                         </div>
 
-                        
+                        {loginError}
                         <input className='btn btn-accent w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
                     <p><small>Don't Have Account ? <Link className='text-primary' to="/signup">Please Register...</Link></small></p>
                     <div className="divider">OR</div>
                     <button
-                    
+                         onClick={() => signInWithGoogle()}
                         className="btn btn-outline text-xl"
                     > <span className='text-3xl'><FcGoogle/></span>oole Login</button>
                 </div>
