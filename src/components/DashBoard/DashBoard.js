@@ -21,6 +21,11 @@ const DashBoard = () => {
           </li>
           <li><NavLink to="/dashboard/review">Add A Review</NavLink></li>
           <li><NavLink to="/dashboard/profile">My Profile</NavLink></li>
+
+          <li><NavLink to="/dashboard/addproduct">Add Product</NavLink></li>
+          <li><NavLink to="/dashboard/manageorders">Manage Order</NavLink></li>
+          <li><NavLink to="/dashboard/manageproduct">Manage Product</NavLink></li>
+          <li><NavLink to="/dashboard/makeadmin">Create Admin</NavLink></li>
          
         </ul>
       </div>
