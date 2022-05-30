@@ -6,7 +6,7 @@ const useToken = user =>{
         const email = user?.user?.email;
         const currentUser = {email: email};
         if(email){
-            fetch(`http://localhost:3005/user/${email}`, {
+            fetch(`https://power-tools-30f6c.web.app/user/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'

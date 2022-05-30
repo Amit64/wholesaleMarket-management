@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const AdminRow = ({user,refetch}) => {
     const {email,role} = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:3005/user/admin/${email}`, {
+        fetch(`https://power-tools-30f6c.web.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

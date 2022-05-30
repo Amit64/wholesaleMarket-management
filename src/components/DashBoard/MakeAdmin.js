@@ -6,7 +6,7 @@ import {
 import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
-    const{data:users,isLoading,refetch} = useQuery('users',()=>fetch('http://localhost:3005/user').then(res=>res.json()))
+    const{data:users,isLoading,refetch} = useQuery('users',()=>fetch('https://power-tools-30f6c.web.app/user').then(res=>res.json()))
     if(isLoading){
         return <Loading></Loading>
     }

@@ -11,7 +11,7 @@ const Purchchase = () => {
     const { register,  handleSubmit, formState: { errors },reset } = useForm();
     const [user] = useAuthState(auth);
     useEffect(()=>{
-        const url = `http://localhost:3005/product/${id}`;
+        const url = `https://power-tools-30f6c.web.app/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
@@ -28,7 +28,7 @@ const Purchchase = () => {
         userName:data.name,
         address:data.address
       }
-      fetch('http://localhost:3005/order',{
+      fetch('https://power-tools-30f6c.web.app/order',{
           method: 'POST',
           headers: {
             'Content-type': 'application/json'
