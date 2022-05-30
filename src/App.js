@@ -14,6 +14,7 @@ import Login from './components/Login/Login';
 import RequireAdmin from './components/Login/RequireAdmin';
 import RequireAuth from './components/Login/RequireAuth';
 import SignUp from './components/Login/SignUp';
+import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import AllProducts from './components/Products/AllProducts';
 import Purchchase from './components/Purchchase/Purchchase';
 import Footer from './components/Shared/Footer/Footer';
@@ -30,6 +31,7 @@ function App() {
       <Route path="/Blog" element={<Home/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
+      <Route path='/portfolio' element={<MyPortfolio/>}></Route>
 
       <Route path="dashboard" element={<RequireAuth>
         <DashBoard></DashBoard>
@@ -60,6 +62,7 @@ function App() {
       </Routes>
       <ToastContainer/>
       <Footer/>
+   
     </div>
   );
 }
