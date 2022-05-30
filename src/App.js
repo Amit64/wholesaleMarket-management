@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer} from 'react-toastify';
 import './App.css';
 import AddProduct from './components/DashBoard/AddProduct';
 import DashBoard from './components/DashBoard/DashBoard';
@@ -10,6 +11,7 @@ import MyProfile from './components/DashBoard/MyProfile';
 import Reviews from './components/DashBoard/Reviews';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import RequireAdmin from './components/Login/RequireAdmin';
 import RequireAuth from './components/Login/RequireAuth';
 import SignUp from './components/Login/SignUp';
 import AllProducts from './components/Products/AllProducts';
@@ -32,14 +34,22 @@ function App() {
       <Route path="dashboard" element={<RequireAuth>
         <DashBoard></DashBoard>
       </RequireAuth>}>
-      <Route index  element={<MyOrders></MyOrders>}></Route>
+      <Route index  element={<MyProfile></MyProfile>}></Route>
         <Route path="review" element={<Reviews></Reviews>}></Route>
-        <Route path="profile" element={<MyProfile></MyProfile>}></Route>
+        <Route path="myorder" element={<MyOrders></MyOrders>}></Route>
 
-        <Route path="manageorders" element={<ManageOrders/>}></Route>
-        <Route path="manageproduct" element={<ManageProduct/>}></Route>
-        <Route path="makeadmin" element={<MakeAdmin/>}></Route>
-        <Route path="addproduct" element={<AddProduct/>}></Route>
+        <Route path="manageorders" element={<RequireAdmin>
+          <ManageOrders/>
+        </RequireAdmin>}></Route>
+        <Route path="manageproduct" element={<RequireAdmin>
+          <ManageProduct/>
+        </RequireAdmin>}></Route>
+        <Route path="makeadmin" element={<RequireAdmin>
+          <MakeAdmin/>
+        </RequireAdmin>}></Route>
+        <Route path="addproduct" element={<RequireAdmin>
+          <AddProduct/>
+        </RequireAdmin>}></Route>
 
 
       </Route>
@@ -48,6 +58,7 @@ function App() {
       </RequireAuth>}></Route>
 
       </Routes>
+      <ToastContainer/>
       <Footer/>
     </div>
   );

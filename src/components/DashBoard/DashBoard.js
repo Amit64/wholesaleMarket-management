@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../hookes/useAdmin';
 
 const DashBoard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
     return (
         <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -17,15 +22,26 @@ const DashBoard = () => {
         <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <NavLink to="/dashboard">My Orders</NavLink>
+            <NavLink to="/dashboard">My Profile</NavLink>
           </li>
-          <li><NavLink to="/dashboard/review">Add A Review</NavLink></li>
-          <li><NavLink to="/dashboard/profile">My Profile</NavLink></li>
+          
+          {
+            !admin &&
+            <>
+            <li><NavLink to="/dashboard/review">Add A Review</NavLink></li>
+            <li><NavLink to="/dashboard/myorder">My Orders</NavLink></li>
+            </>
+          }
 
-          <li><NavLink to="/dashboard/addproduct">Add Product</NavLink></li>
+          {
+            admin &&
+            <>
+            <li><NavLink to="/dashboard/addproduct">Add Product</NavLink></li>
           <li><NavLink to="/dashboard/manageorders">Manage Order</NavLink></li>
           <li><NavLink to="/dashboard/manageproduct">Manage Product</NavLink></li>
           <li><NavLink to="/dashboard/makeadmin">Create Admin</NavLink></li>
+            </>
+          }
          
         </ul>
       </div>

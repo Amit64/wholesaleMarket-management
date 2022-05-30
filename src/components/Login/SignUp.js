@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from './SocialLogin';
+import useToken from '../hookes/useToken';
 
 const SignUp = () => {
     const { register,  handleSubmit, formState: { errors } } = useForm();
@@ -17,6 +18,7 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user || user1);
     const navigate = useNavigate();
     let loginError;
 
@@ -29,10 +31,13 @@ const SignUp = () => {
     const socialLogin =()=>{
         signInWithGoogle()
      }
+     if (token) {
+        navigate('/dashbord');
+    }
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        navigate("/");
+        
     }
     return (
         <div className='flex flex-col h-screen justify-center items-center'>

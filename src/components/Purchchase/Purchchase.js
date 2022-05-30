@@ -3,11 +3,12 @@ import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Purchchase = () => {
     const {id} = useParams();
     const [order,setOrder] = useState([]);
-    const { register,  handleSubmit, formState: { errors } } = useForm();
+    const { register,  handleSubmit, formState: { errors },reset } = useForm();
     const [user] = useAuthState(auth);
     useEffect(()=>{
         const url = `http://localhost:3005/product/${id}`;
@@ -15,12 +16,37 @@ const Purchchase = () => {
       .then((res) => res.json())
       .then((data) => setOrder(data));
     },[])
+    const {_id,name} = order;
     const onSubmit = data =>{
       console.log(data);
+      
+      const orders = {
+        OrderId : _id,
+        product: name,
+        quantity: data.quantity,
+        user: data.email,
+        userName:data.name,
+        address:data.address
+      }
+      fetch('http://localhost:3005/order',{
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(orders),
+        })
+          .then((res) => res.json())
+          .then(data => {
+           console.log(data.acknowledged);
+           if(data.acknowledged === true ){
+             toast.success("order placed successfully");
+           }
+          });
+          reset();
     }
     return (
         <section className="text-gray-600 body-font">
-              <h1 className="title-font text-center pt-5 font-medium text-3xl text-gray-900">Please confirm purchase by submitig  all detail</h1>
+              <h1 className="title-font text-center pt-5 font-medium text-3xl text-gray-900">Hi {user.displayName}, Please confirm purchase by submitig  all detail</h1>
   <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
   <div class="card w-96 bg-base-100 shadow-xl">
   <figure><img src={order.img} alt="Shoes" /></figure>

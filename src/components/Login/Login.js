@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
@@ -9,6 +9,7 @@ import {
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "./SocialLogin";
+import useToken from "../hookes/useToken";
 
 const Login = () => {
   const {
@@ -20,10 +21,18 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+  const [token] = useToken(user || user1);
+
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   let loginError;
+
+  useEffect( () =>{
+    if (token) {
+        navigate(from, { replace: true });
+    }
+}, [token, from, navigate])
 
   if (loading || loading1) {
     return <Loading></Loading>;
@@ -40,7 +49,7 @@ const Login = () => {
   }
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
-    navigate(from, { replace: true });
+    
   };
   return (
     <div className="flex flex-col h-screen justify-center items-center">
