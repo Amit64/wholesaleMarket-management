@@ -21,9 +21,13 @@ const Navbar = () => {
         }
       <li>
         {user ? (
+          <>
+          <li> Hi,{user.displayName} </li>
           <button className="btn btn-ghost" onClick={logout}>
             Sign Out
           </button>
+          </>
+          
         ) : (
           <NavLink to="/login">Login</NavLink> 
         )}
@@ -63,7 +67,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-2">
+          <ul className="menu menu-horizontal p-0">
             {menu}
             <li>
               <label

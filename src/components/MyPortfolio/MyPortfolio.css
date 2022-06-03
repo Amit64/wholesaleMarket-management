@@ -7,7 +7,7 @@
 .masthead {
   padding: 6em 0;
   background-color: rgba(240, 153, 153, 0.064);
-  border-top: solid 1em #FFCF33;
+  border-top: solid 1em #6e65ea;
 }
 
 .masthead-intro {
@@ -20,7 +20,7 @@
 
 .masthead-heading {
     /* Layout Declarations */
-    color: #F1C863;
+    color: #6d6de8;
     margin-top: -0.2em;
     /* Typography Declarations */
     font-family: "Open Sans", "Helvetica Neue", sans-serif;

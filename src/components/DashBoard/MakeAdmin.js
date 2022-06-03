@@ -1,12 +1,10 @@
 import React from 'react';
 import Loading from '../Shared/Loading/Loading';
-import {
-    useQuery
-  } from 'react-query';
+import {useQuery} from 'react-query';
 import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
-    const{data:users,isLoading,refetch} = useQuery('users',()=>fetch('https://power-tools-30f6c.web.app/user').then(res=>res.json()))
+    const{data:users,isLoading,refetch} = useQuery('users',()=>fetch('https://power-tool.herokuapp.com/user').then(res=>res.json()))
     if(isLoading){
         return <Loading></Loading>
     }

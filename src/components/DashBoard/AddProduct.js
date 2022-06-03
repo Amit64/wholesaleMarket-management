@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 const AddProduct = () => {
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
-        const url = `https://power-tools-30f6c.web.app/product`
+       // console.log(data);
+        const url = `https://power-tool.herokuapp.com/product`
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),

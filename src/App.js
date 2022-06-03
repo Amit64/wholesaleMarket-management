@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Blogs from './components/Blogs/Blogs';
 import AddProduct from './components/DashBoard/AddProduct';
 import DashBoard from './components/DashBoard/DashBoard';
 import MakeAdmin from './components/DashBoard/MakeAdmin';
@@ -19,6 +21,7 @@ import AllProducts from './components/Products/AllProducts';
 import Purchchase from './components/Purchchase/Purchchase';
 import Footer from './components/Shared/Footer/Footer';
 import Navbar from './components/Shared/Navbar/Navbar';
+import PageNotFound from './components/Shared/PageNotFound/PageNotFound';
 
 function App() {
   return (
@@ -28,12 +31,12 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>}></Route>
       <Route path="/products" element={<AllProducts/>}></Route>
-      <Route path="/Blog" element={<Home/>}></Route>
+      <Route path="/Blog" element={<Blogs/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
       <Route path='/portfolio' element={<MyPortfolio/>}></Route>
 
-      <Route path="dashboard" element={<RequireAuth>
+      <Route path="/dashboard" element={<RequireAuth>
         <DashBoard></DashBoard>
       </RequireAuth>}>
       <Route index  element={<MyProfile></MyProfile>}></Route>
@@ -59,10 +62,11 @@ function App() {
         <Purchchase/>
       </RequireAuth>}></Route>
 
+      <Route path='*' element={<PageNotFound/>}></Route>
+
       </Routes>
-      <ToastContainer/>
       <Footer/>
-   
+      <ToastContainer/>
     </div>
   );
 }

@@ -1,45 +1,80 @@
 [
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Professional Impact Drill",
+        "img":"https://i.ibb.co/KxCYrcK/impact-drill-gsb-13-re-0601217671.jpg",
+        "price": 9024,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"600W 220V Professional Impact Drill Machine Bosch Brand GSB13RE"
     },
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Angle Grinder",
+        "img":"https://i.ibb.co/4pQKjJ8/angle-grinder-total.jpg",
+        "price": 4500,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"1500W 11000rpm 125mm Angle Grinder Total Brand TG11512526"
     },
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Electric Circular Saw",
+        "img":"https://i.ibb.co/St8CVJZ/TS1141856-1.jpg",
+        "price": 6553,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"1400W 4800rpm Electric Circular Saw and Cutter Total Brand TS1141856"
     },
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Air Nail Gun",
+        "img":"https://i.ibb.co/GV47M4d/TAT83501-253x300.jpg",
+        "price": 6888,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"15-50mm Air Nail Gun Total Brand TAT83501 Load Capacity : 100pcs"
     },
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Heavy Duty Rotary Hammer Drill",
+        "img":"https://i.ibb.co/FHg9Fr0/TH1153216-1.jpg",
+        "price": 9788,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"1500W 850rpm Heavy Duty Rotary Hammer Drill Total Brand TH1153216"
     },
     {
-        "name":"drill machine",
-        "img":"https://i.ibb.co/Bt1DDkk/asset-4.jpg",
-        "price": 1800,
+        "name":"Wall Chaser",
+        "img":"https://i.ibb.co/rcprbDN/TWLC1256-1.jpg",
+        "price": 16675,
         "quantity": 20,
-        "description":"compact and lightweight design 15 position adjustable torque control LED light for improved visibility"
+        "description":"1500W Wall Chaser Total Brand TWLC1256 Voltage:220-240V~50/60Hz_x000D"
+    },
+    {
+        "name":"Abrasive Metal Cutting Disc",
+        "img":"https://i.ibb.co/cr1km85/TAC2211005-1.jpg",
+        "price": 348,
+        "quantity": 20,
+        "description":"10 Pcs Abrasive Metal Cutting Disc Set Total Brand TAC2211005"
+    },
+    {
+        "name":"Electric Planer Machine",
+        "img":"https://i.ibb.co/5R4jhc5/TL1108236-1.jpg",
+        "price": 6960,
+        "quantity": 20,
+        "description":"1050W Electric Planer Machine Total Brand TL1108236"
+    },
+    {
+        "name":"Infrared Thermometer",
+        "img":"https://i.ibb.co/yq8jZ6k/b34465635613e8045d2b0d51d81d8a12-1.jpg",
+        "price": 16675,
+        "quantity": 20,
+        "description":"10°C~40°C Infrared Thermometer Total Brand THIT010381 Temperature:10°C~40°C (50°F~104°F)"
+    },
+    {
+        "name":"Wire Stripper",
+        "img":"https://i.ibb.co/cr1km85/TAC2211005-1.jpg",
+        "price": 725,
+        "quantity": 20,
+        "description":"175x85mm Multifunction Wire Stripper Total Brand THT15606  Cable Type: Round and flat"
+    },
+    {
+        "name":"High Pressure Car Washer",
+        "img":"https://i.ibb.co/yq8jZ6k/b34465635613e8045d2b0d51d81d8a12-1.jpg",
+        "price": 14210,
+        "quantity": 20,
+        "description":"1800W 150bar High Pressure Car Washer Total Brand TGT11356"
     }
 ]
 

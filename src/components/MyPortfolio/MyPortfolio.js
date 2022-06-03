@@ -21,6 +21,16 @@ const MyPortfolio = () => {
       <p>I'm originally from Bangladesh, Sylhet. </p>
     </section>
     <section class="location-section">
+      <h1>Skills</h1>
+      <li>Html,css</li>
+      <li>Javascript</li>
+      <li>Bootstrap,Tailwind</li>
+      <li>React</li>
+      <li>Node Js,Express Js</li>
+      <li>MongoDb</li>
+      <li>Git</li>
+    </section>
+    <section class="location-section">
       <h1>My Goal</h1>
       <p>
         My current goal is to become a fullstack engineer.And for that i five

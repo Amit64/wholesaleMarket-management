@@ -10,7 +10,7 @@ const FeatureProducts = () => {
     axios.get("https://power-tool.herokuapp.com/limit-product").then((res) => {
       const data = res.data;
       setFetProduct(data);
-      console.log(data);
+      //console.log(data);
     });
   }, []);
   return (

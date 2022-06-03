@@ -11,7 +11,7 @@ const AllProducts = () => {
       const data = res.data;
       setProducts(data);
     });
-  }, []);
+  }, [products]);
   return (
     <section className="body-font">
       <h1 className="text-4xl text-center font-bold p-4 text-[#2b2c34]">All Products</h1>
