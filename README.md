@@ -12,4 +12,4 @@ https://power-tools-30f6c.web.app/
  => product inventory feature
  => use Tailwind 
  => React Hook Forn
- => Json web token for security
+ => Json web token for security.
