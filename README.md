@@ -1,5 +1,5 @@
 # wholeSale-market wesite project
-# Live Site ;
+# Live Site :
 https://power-tools-30f6c.web.app/
  Some key feature :
  => Built with React
